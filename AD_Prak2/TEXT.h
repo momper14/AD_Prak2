@@ -12,6 +12,6 @@ public:
 	void einfuegenSortiert(EVKD*, int);
 
 	~TEXT();
-private:
+//private:
 	EVKD* start;
 };

@@ -2,6 +2,7 @@
 class EVKD{
 public:
 	EVKD(const char*, EVKD*);
+	EVKD(const char*);
 	EVKD(const EVKD&);
 
 	char* getDaten() const;

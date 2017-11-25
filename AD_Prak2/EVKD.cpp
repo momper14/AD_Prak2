@@ -1,13 +1,20 @@
 #include "Util.h"
 #include "EVKD.h"
-#include "string.h"
+#include "string"
 
 
 
 EVKD::EVKD(const char* lpszDaten, EVKD* n){
-	anz = 0;
-
+	anz = std::string(lpszDaten).length();
 	next = n;
+	daten = new char[anz];
+
+	for(int i = 0; i < anz; i++){
+		daten[i] = lpszDaten[i];
+	}
+}
+
+EVKD::EVKD(const char *lpszDaten) : EVKD(lpszDaten, nullptr){
 }
 
 EVKD::EVKD(const EVKD &obj){
@@ -39,7 +46,7 @@ EVKD * EVKD::getNext() const{
 }
 
 int EVKD::operator>(const EVKD &obj){
-	return (strcmp(this->getDaten(), obj.getDaten()) > 0) ? 1 : 0;
+	return (compchar(this->daten, this->anz, obj.daten, obj.anz) > 0) ? 1 : 0;
 }
 
 int EVKD::operator==(const EVKD &obj){

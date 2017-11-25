@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EVKD.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="TEXT.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
