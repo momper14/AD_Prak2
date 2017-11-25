@@ -55,11 +55,15 @@ void TEXT::einfuegenSortiert(EVKD *in, int max){
 
 TEXT::~TEXT(){
 	if(start != nullptr){
-		EVKD *tmp;
-		while((tmp = this->start->getNext()) != nullptr){
+		EVKD *tmp, *tmpvor;
+		while(this->start->getNext() != nullptr){
+			tmpvor = this->start;
+			tmp = tmpvor->getNext();
 			while(tmp->getNext() != nullptr){
-				tmp = tmp->getNext();
+				tmpvor = tmp;
+				tmp = tmpvor->getNext();
 			}
+			tmpvor->setNext(nullptr);
 			delete tmp;
 		}
 		delete this->start;
