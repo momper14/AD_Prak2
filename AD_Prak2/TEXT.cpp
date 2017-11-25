@@ -1,11 +1,14 @@
 #include "TEXT.h"
 
+
+// initialisiert die Variablen
 TEXT::TEXT(){
 	anz = 0;
 	start = nullptr;
 }
 
 
+// hängt ein neues Element hinten an die Liste an
 void TEXT::anhaengen(const char *in){
 	if(this->start == nullptr){
 		this->start = new EVKD(in);
@@ -21,12 +24,16 @@ void TEXT::anhaengen(const char *in){
 }
 
 void TEXT::einfuegenSortiert(EVKD *in, int max){
-	if(max == 1){
+	// start-Element vorhanden ?
+	if(this->start == nullptr){
+		//start-Element ersetzen
 		this->start = in;
 		this->anz++;
 
-	} else if(max > 1){
+	}else if(max >= 1){
+		// 1. Element größer ?
 		if(*this->start > *in){
+			//start-Element ersetzen
 			in->setNext(this->start);
 			this->start = in;
 			this->anz++;
@@ -35,6 +42,7 @@ void TEXT::einfuegenSortiert(EVKD *in, int max){
 			int drin = 0;
 			EVKD *vorg = this->start, *vergl = vorg->getNext();
 
+			// suchen nach Position und einfügen
 			for(int i = 2; drin == 0 && i < max; i++){
 				if(*vergl > *in){
 					in->setNext(vergl);
@@ -43,8 +51,10 @@ void TEXT::einfuegenSortiert(EVKD *in, int max){
 					drin = 1;
 				}
 				vorg = vergl;
-				vergl = vergl->getNext();
+				vergl = vorg->getNext();
 			}
+
+			// hinten anhängen, falls größer als größtes Element der Liste
 			if(!drin){
 				vorg->setNext(in);
 				this->anz++;
@@ -53,19 +63,25 @@ void TEXT::einfuegenSortiert(EVKD *in, int max){
 	}
 }
 
+
+// löscht alle Elemente der Liste
 TEXT::~TEXT(){
 	if(start != nullptr){
 		EVKD *tmp, *tmpvor;
+
 		while(this->start->getNext() != nullptr){
 			tmpvor = this->start;
 			tmp = tmpvor->getNext();
+
 			while(tmp->getNext() != nullptr){
 				tmpvor = tmp;
 				tmp = tmpvor->getNext();
 			}
+
 			tmpvor->setNext(nullptr);
 			delete tmp;
 		}
+
 		delete this->start;
 	}
 }
