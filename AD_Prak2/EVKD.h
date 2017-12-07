@@ -13,24 +13,24 @@ public:
 	// Copy-konstruktor
 	EVKD(const EVKD&);
 
-	// gibt daten als String zurück
+	// gibt daten als String zurÃ¼ck
 	// @return daten + '\0'
 	char* getDaten() const;
 
-	// getter für anz
+	// getter fÃ¼r anz
 	int getAnz() const;
 
-	// setter für next
+	// setter fÃ¼r next
 	void setNext(EVKD*);
 
-	// getter für next
+	// getter fÃ¼r next
 	EVKD* getNext() const;
 
-	// überladen von Operatoren
+	// Ã¼berladen von Operatoren
 	int operator> (const EVKD&);
 	int operator== (const EVKD&);
 
-	// löscht daten und next
+	// lÃ¶scht daten und next
 	~EVKD();
 
 private:
@@ -38,8 +38,7 @@ private:
 	char *daten;
 	// Anzahl an Elementen in daten
 	int anz;
-	// nächstes Element der Liste
+	// nÃ¤chstes Element der Liste
 	EVKD *next;
 
 };
-

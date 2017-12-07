@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Util.h"
 #include "EVKD.h"
 
 
@@ -13,13 +14,23 @@ public:
 	TEXT();
 
 
-	// hängt ein neues Element hinten an die Liste an
+	// hÃ¤ngt ein neues Element hinten an die Liste an
 	void anhaengen(const char*);
 
-	// fügt das Element lexikalisch sortiert in die Liste ein
+	// fÃ¼gt das Element lexikalisch sortiert in die Liste ein
 	void einfuegenSortiert(EVKD*, int);
-
-	// löscht alle Elemente der Liste
+	
+	// lÃ¶scht element an position x
+	EVKD * loesche(int);
+	
+	// alles ausgeben
+	void zeigeDich();
+	
+	//insertion sort
+	void iSort(); 
+	
+	
+	// lÃ¶scht alle Elemente der Liste
 	~TEXT();
 private:
 	// anfang der Liste
