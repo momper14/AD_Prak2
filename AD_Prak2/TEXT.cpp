@@ -70,15 +70,20 @@ void TEXT::einfuegenSortiert(EVKD *in, int max){
 	}
 }
 
-
-
+// löscht element an position x
+// @return gelöschtes Element
 EVKD * TEXT::loesche(int pos){
+	// laufindex
 	int i = 1;
 	EVKD *tmp, *tmpvor;
-	if(pos > this->anz){
+
+	// Posiiton gültig ?
+	if(pos > this->anz || pos < 1){
 		return nullptr;
 	} else{
+		// erstes Element ?
 		if(pos == 1){
+			// start = 2. Element
 			tmp = this->start;
 			this->anz--;
 			this->start = tmp->getNext();
@@ -101,18 +106,21 @@ EVKD * TEXT::loesche(int pos){
 
 }
 
+// alles ausgeben
 void TEXT::zeigeDich(){
-	int i = 1;
-	EVKD *tmp = this->start;
-	while(tmp->getNext() != nullptr){
-		cout << i << ": Adresse: " << tmp << "  Inhalt:  " << tmp->getDaten() << " Next: " << tmp->getNext() << endl;
-		i++;
-		tmp = tmp->getNext();
+	if(this->start != nullptr){
+		int i = 1;
+		EVKD *tmp = this->start;
+		while(tmp->getNext() != nullptr){
+			cout << i << ": Adresse: " << tmp << "  Inhalt:  " << tmp->getDaten() << " Next: " << tmp->getNext() << endl;
+			i++;
+			tmp = tmp->getNext();
+		}
+		cout << i << ": Adresse: " << tmp << "  Inhalt:  " << tmp->getDaten() << " Ich bin das Letzte" << endl;
 	}
-	cout << i << ": Adresse: " << tmp << "  Inhalt:  " << tmp->getDaten() << " Ich bin das Letzte" << endl;
-
 }
 
+//insertion sort
 void TEXT::iSort(){
 	int i = 2;
 	EVKD *tmp;
