@@ -24,7 +24,7 @@ EVKD::EVKD(const EVKD &obj){
 }
 
 
-// gibt daten als String zurück
+// gibt daten als String zurÃ¼ck
 // @return daten + '\0'
 char * EVKD::getDaten() const{
 	char *ret = new char[anz + 1];
@@ -35,22 +35,22 @@ char * EVKD::getDaten() const{
 	return ret;
 }
 
-// getter für anz
+// getter fÃ¼r anz
 int EVKD::getAnz() const{
 	return anz;
 }
 
-// setter für next
+// setter fÃ¼r next
 void EVKD::setNext(EVKD *obj){
 	next = obj;
 }
 
-// getter für next
+// getter fÃ¼r next
 EVKD * EVKD::getNext() const{
 	return next;
 }
 
-// überladen von Operatoren
+// Ã¼berladen von Operatoren
 int EVKD::operator>(const EVKD &obj){
 	return (charcmp(this->daten, this->anz, obj.daten, obj.anz) > 0) ? 1 : 0;
 }
@@ -69,7 +69,7 @@ int EVKD::operator==(const EVKD &obj){
 }
 
 
-// löscht daten und next
+// lÃ¶scht daten und next
 EVKD::~EVKD(){
 	delete daten;
 	if(next != nullptr)
