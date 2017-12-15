@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#define anzIn 50
+
 void cinclear(){
 	cin.clear();
 	cin.ignore(10000, '\n');
@@ -47,16 +49,16 @@ int main(int argc, const char* argv[]){
 				text->zeigeDich();
 				break;
 			case 3:  cout << endl << "Bitte Wort eingeben, das angehaenget werden soll" << endl;
-				eingabe = new char[20];
-				cin >> eingabe;
-				cinclear();
+				eingabe = new char[anzIn];
+				cin.getline(eingabe, anzIn);
+				cin.clear();
 				text->anhaengen(eingabe);
 				delete[] eingabe;
 				break;
 			case 4:  cout << endl << "Bitte Wort eingeben" << endl;
-				eingabe = new char[20];
-				cin >> eingabe;
-				cinclear();
+				eingabe = new char[anzIn];
+				cin.getline(eingabe, anzIn);
+				cin.clear();
 				evkd = new EVKD(eingabe);
 				text->einfuegenSortiert(evkd, text->anz);
 				delete[] eingabe;
